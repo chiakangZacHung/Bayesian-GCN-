@@ -311,7 +311,7 @@ def training(model, FLAGS, model_name, smi_total, prop_total):
             #fig = Draw.MolToFile(iMol, "./amesfirstmodImg3/"+str(i*batch_size+count)+'.png', size=size, highlightAtoms=start)
         # MC-sampling
         P_mean = []
-        for n in range(5):
+        for n in range(1):
             Y_mean, _, loss = model.test(A_batch, X_batch, Y_batch)
             P_mean.append(Y_mean.flatten())
             # mtr = np.abs(model.get_feature(A_batch, X_batch, Y_batch))
