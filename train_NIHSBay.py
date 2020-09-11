@@ -5,7 +5,7 @@ import sys
 import random
 from utils import  shuffle_two_list, load_input_HIV, convert_to_graph, split_train_eval_test
 from rdkit import Chem
-from mc_dropout import mc_dropout
+from mc_dropout_bay import mc_dropout
 import tensorflow as tf
 from sklearn.metrics import accuracy_score, roc_auc_score
 from rdkit import Chem
