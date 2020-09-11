@@ -119,10 +119,10 @@ def maxSum(arr, n, k):
 def training(model, FLAGS, model_name, smi_total, prop_total):
     np.set_printoptions(threshold=sys.maxsize)
     print("Start Training XD")
-    stuff = open("C:/Users/Zac Hung/Desktop/masterthesis/experiment/baysept9thamesfirst.txt", 'w')
-    stuff1 = open("C:/Users/Zac Hung/Desktop/masterthesis/experiment/bayfirstmdames.txt", 'w')
-    stuff2 = open("C:/Users/Zac Hung/Desktop/masterthesis/experiment/bayamesaleat.txt", 'w')
-    stuff3 = open("C:/Users/Zac Hung/Desktop/masterthesis/experiment/bayamesepist.txt", 'w')
+    stuff = open("./amesSA.txt", 'w')
+    stuff1 = open("./amesPred.txt", 'w')
+    stuff2 = open("./amesAle.txt", 'w')
+    stuff3 = open("./amesEpi.txt", 'w')
     #model.restore("C:/Users/Zac Hung/PycharmProjects/mythesis/uq_molecule/aug12/MC-Dropout_HIV.ckpt-31")
     num_epochs = FLAGS.epoch_size
     batch_size = FLAGS.batch_size
