@@ -51,20 +51,19 @@ def processUnit(iMol,start,i,batch_size,count,tracker,adj_len,full_size):
             full_size=full_size-j
             start = maxSum(tracker,adj_len,full_size)
         else:
-            fig = Draw.MolToFile(iMol, "./amesfirstmodImg4bay/" + str(i * batch_size + count) + '.png', size=size,
+            fig = Draw.MolToFile(iMol, "./IMG/" + str(i * batch_size + count) + '.png', size=size,
                                  highlightAtoms=start)
             return max(tmp1.split('.'), key=len)
         if(len(start)>0):
             tmp = rdkit.Chem.rdmolfiles.MolFragmentToSmiles(iMol, atomsToUse=start)
             #print(tmp)
         else:
-            fig = Draw.MolToFile(iMol, "./amesfirstmodImg4bay/" + str(i * batch_size + count) + '.png', size=size,
+            fig = Draw.MolToFile(iMol, "./IMG/" + str(i * batch_size + count) + '.png', size=size,
                                  highlightAtoms=start)
             return max(tmp1.split('.'), key=len)
-    fig = Draw.MolToFile(iMol, "./amesfirstmodImg4bay/" + str(i * batch_size + count) + '.png', size=size,
+    fig = Draw.MolToFile(iMol, "./IMG/" + str(i * batch_size + count) + '.png', size=size,
                          highlightAtoms=start)
     return max(tmp.split('.'), key=len)
-
 def np_sigmoid(x):
     return 1. / (1. + np.exp(-x))
 def maxSum(arr, n, k):
@@ -119,10 +118,10 @@ def maxSum(arr, n, k):
 def training(model, FLAGS, model_name, smi_total, prop_total):
     np.set_printoptions(threshold=sys.maxsize)
     print("Start Training XD")
-    stuff = open("./amesBaySA.txt", 'w')
-    stuff1 = open("./amesBayPred.txt", 'w')
-    stuff2 = open("./amesBayAle.txt", 'w')
-    stuff3 = open("./amesBayEpi.txt", 'w')
+    stuff = open("./SA.txt", 'w')
+    stuff1 = open("./Pred.txt", 'w')
+    stuff2 = open("./ALE.txt", 'w')
+    stuff3 = open("./EPI.txt", 'w')
     #model.restore("C:/Users/Zac Hung/PycharmProjects/mythesis/uq_molecule/aug12/MC-Dropout_HIV.ckpt-31")
     num_epochs = FLAGS.epoch_size
     batch_size = FLAGS.batch_size
