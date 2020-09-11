@@ -1,5 +1,5 @@
 import tensorflow as tf
-from uq_molecule import blocks
+from  import blocks
 
 
 class mc_dropout():
