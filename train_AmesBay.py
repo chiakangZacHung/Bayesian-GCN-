@@ -259,7 +259,7 @@ def training(model, FLAGS, model_name, smi_total, prop_total):
     #model.restore("C:/Users/Zac Hung/PycharmProjects/mythesis/uq_molecule/aug16thsummax/MC-Dropout_HIV.ckpt-4")
     #model.restore("C:/Users/Zac Hung/PycharmProjects/mythesis/uq_molecule/aug17japan/MC-Dropout_HIV.ckpt-9")
     #model.restore("C:/Users/Zac Hung/PycharmProjects/mythesis/uq_molecule/japanaug18bay/MC-Dropout_HIV.ckpt-8")
-    model.restore("C:/Users/Zac Hung/PycharmProjects/mythesis/uq_molecule/sep5amesbays/MC-Dropout_HIV.ckpt-11")
+    model.restore("./AmesBay/MC-Dropout_HIV.ckpt-11")
     #model.restore("C:/Users/Zac Hung/PycharmProjects/mythesis/uq_molecule/japanfullbayfirstmodSept7th/MC-Dropout_HIV.ckpt-4")
     # Test
     test_st = time.time()
