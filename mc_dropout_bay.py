@@ -24,13 +24,13 @@ class mc_dropout():
         num_layers = self.FLAGS.num_layers
         num_attn = self.FLAGS.num_attn
 
-        self._X= blocks.encoder_gat_gate(self.X, self.A, num_layers, hidden_dim, num_attn, length, num_train)
-        #self._X, self.avg = blocks.encoder_gat_gate(self.X, self.A, num_layers, hidden_dim, num_attn, length,
+        self._X= blocks_bay.encoder_gat_gate(self.X, self.A, num_layers, hidden_dim, num_attn, length, num_train)
+        #self._X, self.avg = blocks_bay.encoder_gat_gate(self.X, self.A, num_layers, hidden_dim, num_attn, length,
         #                                            num_train)
-        self.Z, self.P_mean, self.P_logvar,self.weights = blocks.readout_and_mlp(self._X, latent_dim, length, num_train)
-        #self.Z, self.P_mean, self.P_logvar= blocks.readout_and_mlp(self._X, latent_dim, length,
+        self.Z, self.P_mean, self.P_logvar,self.weights = blocks_bay.readout_and_mlp(self._X, latent_dim, length, num_train)
+        #self.Z, self.P_mean, self.P_logvar= blocks_bay.readout_and_mlp(self._X, latent_dim, length,
         #                                                                    num_train)
-        #self.Zebra=blocks.extractfood(self._X, latent_dim, length, num_train)
+        #self.Zebra=blocks_bay.extractfood(self._X, latent_dim, length, num_train)
 
 
         self.loss = None
