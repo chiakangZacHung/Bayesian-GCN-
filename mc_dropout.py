@@ -1,5 +1,5 @@
 import tensorflow as tf
-from  import blocks
+import blocks
 
 
 class mc_dropout():
