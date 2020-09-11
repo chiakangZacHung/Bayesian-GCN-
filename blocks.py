@@ -1,31 +1,33 @@
-import tensorflow as tf
 from ConcreteDropout import ConcreteDropout
 
 
 # from tensorflow.keras.layers import Dense, Conv1D
 
 def conv1d_with_concrete_dropout(x, out_dim, wd, dd):
-    output = ConcreteDropout(tf.keras.layers.Conv1D(filters=out_dim,
+
+    output = tf.keras.layers.Conv1D(filters=out_dim,
                                                     kernel_size=1,
                                                     use_bias=True,
                                                     activation=None,
                                                     kernel_initializer=tf.contrib.layers.xavier_initializer(),
-                                                    bias_initializer=tf.contrib.layers.xavier_initializer()),
-                             weight_regularizer=wd,
-                             dropout_regularizer=dd,
-                             trainable=True )(x, training=True)
+                                                    bias_initializer=tf.contrib.layers.xavier_initializer())(x)
+    print("output1", output.get_shape())
+    # output = tf.keras.layers.BatchNormalization()(output)
+    # output = tf.keras.layers.AveragePooling1D(3,1,"same")(output)
+    # output = tf.keras.layers.MaxPooling1D(5, 1, "same")(output)
+
+    print("output2", output.get_shape())
+    #print("output dim", out_dim)
     return output
 
 def dense_with_concrete_dropout(x, out_dim, wd, dd):
-    output = ConcreteDropout(tf.keras.layers.Dense(units=out_dim,
+    output = tf.keras.layers.Dense(units=out_dim,
                                                    use_bias=True,
                                                    activation=None,
                                                    kernel_initializer=tf.contrib.layers.xavier_initializer(),
-                                                   bias_initializer=tf.contrib.layers.xavier_initializer()),
-                             weight_regularizer=wd,
-                             dropout_regularizer=dd,
-                             trainable=True)(x, training=True)
+                                                   bias_initializer=tf.contrib.layers.xavier_initializer())(x)
     return output
+
 
 def attn_matrix(A, X, attn_weight):
     # A : [batch, N, N]
@@ -64,7 +66,7 @@ def graph_attn_gate(A, X, attn, out_dim, label, length, num_train):
         #print(_A.get_shape())
 
         _h = tf.nn.relu(tf.matmul(_A, _h))
-        #print("hidden state shape",_h.get_shape())
+        print("hidden state shape",_h.get_shape())
         X_total.append(_h)
         A_total.append(_A)
 
@@ -108,24 +110,24 @@ def readout_and_mlp(X, latent_dim, length, num_train):
     # Graph Embedding in order to satisfy invariance under permutation
     wd = length ** 2 / num_train
     dd = 2. / num_train
-    #print("x shape", X.get_shape())
+    print("x shape", X.get_shape())
     #Z = tf.nn.relu(conv1d_with_concrete_dropout(X, latent_dim, wd, dd))
     aggr = tf.random_normal([tf.shape(X)[0], 1,62])
-    #print("aggr",aggr)
+    print("aggr",aggr)
 
     Z=tf.keras.layers.Dense(1,activation=tf.keras.layers.LeakyReLU(0.1))(tf.concat([X,aggr],axis=1))
-    #print("first dense",Z.get_shape())
+    print("first dense",Z.get_shape())
     Z=tf.keras.layers.Flatten()(Z)
-    #print("flatten:",Z.get_shape())
+    print("flatten:",Z.get_shape())
     Z=tf.nn.softmax(Z,axis=1)
-    #print("softmax",Z)
+    print("softmax",Z)
     weights=Z
     Z=tf.keras.layers.RepeatVector(62)(Z)
-    #print("Repeat vector:", Z)
+    print("Repeat vector:", Z)
     Z = tf.transpose(Z,[0,2,1])
-    #print("transposed vector:", Z)
+    print("transposed vector:", Z)
     Z=tf.keras.layers.multiply([(tf.concat([X,aggr],axis=1)),Z])
-    #print("product:", Z)
+    print("product:", Z)
     #i comment out this
     Z=tf.nn.sigmoid(tf.reduce_sum(Z,1))
 
@@ -142,10 +144,10 @@ def readout_and_mlp(X, latent_dim, length, num_train):
     #weights=layer.weights
     #Z=tf.concat([tf.nn.sigmoid(tf.reduce_sum(Z,1)), tf.nn.sigmoid(tf.reduce_mean(Z,1))],1)
 
-    #print("z shape another:",Z.get_shape())
+    print("z shape another:",Z.get_shape())
     # Predict the molecular property
     _Y = tf.nn.relu(dense_with_concrete_dropout(Z, latent_dim, wd, dd))
-    #print("_y:", _Y.get_shape())
+    print("_y:", _Y.get_shape())
     #print("_y",_Y)
     Y_mean = tf.keras.layers.Dense(units=1,
                                    use_bias=True,
