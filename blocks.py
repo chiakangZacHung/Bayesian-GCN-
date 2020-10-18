@@ -1,5 +1,5 @@
 from ConcreteDropout import ConcreteDropout
-
+import tensorflow as tf
 
 # from tensorflow.keras.layers import Dense, Conv1D
 
