@@ -43,6 +43,12 @@ Below is the automatic extraction of the structural alert:
 <p align="center">
   <img height="270" src="IMG/img3.png">
 </p>
+<p align="center">
+  <img height="270" src="IMG/img4.png">
+</p>
+<p align="center">
+  <img height="270" src="IMG/img5.png">
+</p>
 
 ## Requirements
 The `requirements.txt` file lists most of the libraries that are necessary to run the scripts. **Install them** using:
