@@ -44,10 +44,12 @@ Below is the automatic extraction of the structural alert:
   <img height="270" src="IMG/img3.png">
 </p>
 The correlation between output probability and epistemic uncertainty in the test data
+
 <p align="left">
   <img height="400" src="IMG/img4.png">
 </p>
 The correlation between output probability and the aleatoric uncertainty in the test data
+
 <p align="left">
   <img height="400" src="IMG/img5.png">
 </p>
