@@ -39,7 +39,7 @@ chemical descriptors. Such models can provide uncertainty estimation
 <a name="Results"/>
 
 ## Results
-Below is the automatic extraction of the structural alerts:
+Below is the automatic extraction of the structural alert:
 <p align="center">
   <img height="270" src="IMG/img3.png">
 </p>
