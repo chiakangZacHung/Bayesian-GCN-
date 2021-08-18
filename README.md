@@ -6,11 +6,6 @@
 "Bayesian Graph Convolutional Neural Network with Uncertainty Estimation to
 Predict Mutagenicity of Chemicals"
 
-
-To use it please download all the files, and place the dataset desired in the TOX folder under TEST.txt. Then simply run the desire train files. 
-
-The Structural alerts image would be stored in IMG.
-
 <a name="description"/>
 
 ## Description
@@ -55,6 +50,11 @@ Below is the correlation between output probability and the aleatoric uncertaint
     
   <img height="270" src="IMG/img5.png">
 </p>
+
+## Instructions
+To use it please download all the files, and place the dataset desired in the TOX folder under TEST.txt. Then simply run the desire train files. 
+
+The Structural alerts image would be stored in IMG.
 
 ## Requirements
 The `requirements.txt` file lists most of the libraries that are necessary to run the scripts. **Install them** using:
