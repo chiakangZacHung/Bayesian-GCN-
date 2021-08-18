@@ -42,6 +42,7 @@ chemical descriptors. Such models can provide uncertainty estimation
 <p align="center">
   <img height="270" src="IMG/img3.png">
 </p>
+
 ## Requirements
 The `requirements.txt` file lists most of the libraries that are necessary to run the scripts. **Install them** using:
 
