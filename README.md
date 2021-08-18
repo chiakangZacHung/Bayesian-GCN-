@@ -9,6 +9,11 @@ Predict Mutagenicity of Chemicals"
 To use it please download all the files, and place the dataset desired in the TOX folder under TEST.txt. Then simply run the desire train files. 
 
 The Structural alerts image would be stored in IMG.
+## Requirements
+The `requirements.txt` file lists all the libraries that are necessary to run the scripts. **Install them** using:
+
+```
+pip install -r requirements.txt
 
 Required dependencies:
 python 3.7.5
