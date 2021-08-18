@@ -29,23 +29,25 @@ The Structural alerts image would be stored in IMG.
 ## Description
 Most models for toxicity lack uncertainty estimation but uncertainty estimation is
 important for results interpretation since the prediction may be inaccurate if the
-model does not have sufficient data. The deep learning models available use as
+model does not have sufficient data. 
+
+The deep learning models available use as
 input either a human engineered set of chemical descriptors or the simplified
 molecular-input line-entry system (SMILES) textual representation of molecules.
-This thesis develops two families of new classification models for Ames
-mutagenicity, both using deep learning and using directly the chemical graphs. All
-the models use graph convolutional neural networks (GCN), a new architecture that
-takes the chemical graph in input, thus avoiding the computation and selection of
-chemical descriptors. Such models can provide uncertainty estimation.
+
+This work develops two families of new classification models for Ames
+mutagenicity, both using deep learning and using directly the chemical graphs
 <a name="Dataset"/>
 ## Dataset
 Two data sets for the mutagenicity endpoint are used: a large data set collected from
 different web sites (called Ames set), and the dataset from Japanese National Health
 Institute and Science (NIHS set).
-<a name="structure"/>
+<a name="Architecture"/>
 
-## Structure
-
+## Architecture
+All the models use graph convolutional neural networks (GCN), a new architecture that
+takes the chemical graph in input, thus avoiding the computation and selection of
+chemical descriptors. Such models can provide uncertainty estimation
 
 <a name="solutions"/>
 
