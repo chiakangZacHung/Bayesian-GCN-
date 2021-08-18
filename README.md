@@ -15,7 +15,7 @@ The `requirements.txt` file lists all the libraries that are necessary to run th
 ```
 pip install -r requirements.txt
 ```
-Rdkit should be installed separately
+Rdkit should be installed separately with the following command
 ```
 conda create -c conda-forge -n my-rdkit-env rdkit
 ```
