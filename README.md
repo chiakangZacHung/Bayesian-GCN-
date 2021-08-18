@@ -10,7 +10,7 @@ To use it please download all the files, and place the dataset desired in the TO
 
 The Structural alerts image would be stored in IMG.
 ## Requirements
-The `requirements.txt` file lists all the libraries that are necessary to run the scripts. **Install them** using:
+The `requirements.txt` file lists most of the libraries that are necessary to run the scripts. **Install them** using:
 
 ```
 pip install -r requirements.txt
