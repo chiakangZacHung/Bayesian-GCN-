@@ -14,8 +14,8 @@ The `requirements.txt` file lists all the libraries that are necessary to run th
 
 ```
 pip install -r requirements.txt
-
-Required dependencies:
-python 3.7.5
-Tensorflow:1.13.1
-Rdkit: 2019.09.1
+```
+Rdkit should be installed separately
+```
+conda create -c conda-forge -n my-rdkit-env rdkit
+```
